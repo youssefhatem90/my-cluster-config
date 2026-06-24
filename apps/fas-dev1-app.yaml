@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fas-dev1
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/YOUR-USERNAME/my-cluster-config.git' # Change to your repo
+    targetRevision: HEAD
+    path: workloads/fas-dev1
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: fas-dev1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
