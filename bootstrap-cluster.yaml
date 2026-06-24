@@ -1,14 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
+  name: argocd-root
   namespace: argocd
 spec:
   project: default
   source:
+    # Replace with your actual repository URL
     repoURL: 'https://github.com/youssefhatem90/my-cluster-config.git'
-    targetRevision: HEAD
-    path: apps
+    targetRevision: main
+    path: argocd-backup
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
@@ -16,3 +17,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
