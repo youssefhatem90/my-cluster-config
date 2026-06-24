@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/YOUR-USERNAME/my-cluster-config.git' # Change to your repo
+    repoURL: 'https://github.com/youssefhatem90/my-cluster-config.git'
     targetRevision: HEAD
     path: workloads/fas-dev1
   destination:
